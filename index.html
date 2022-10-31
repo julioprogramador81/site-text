@@ -772,6 +772,64 @@ margin-top: 2000px;
        </div>
       
      </footer>
-    
+     <script type="text/javascript">
+
+        const target = document.querySelectorAll('[data-anime]');
+     const animationClass = 'animate';
+   
+     function animeScroll(){
+       /*console.log('abestado');*/
+      /* const windowTop = window.pageYOffset + ((window.innerHeight) * 3 / 4);*/
+      const windowTop = window.pageYOffset ;
+       target.forEach(function(element){
+         if((windowTop) > element.offsetTop){
+           element.classList.add(animationClass);
+         }else{
+           element.classList.remove(animationClass);
+         }
+         console.log(element.offsetTop);
+   
+       })
+     }
+        animeScroll();
+        if(target.length){
+     window.addEventListener('scroll', function(){
+   
+       animeScroll();
+     })
+     }
+   /*fim animação--------------*/
+     
+      let contador = 1;
+     setInterval( function(){
+     document.getElementById('slide' + contador).checked = true;
+     contador++;
+     if(contador > 3){
+       contador = 1;
+     }
+     }, 3000);
+   
+   
+   
+     // pegar botão
+   var mybutton = document.getElementById("myBtn");
+   
+   // quando rolar a página 20px do topo para baixo, o botão será exibido
+   window.onscroll = function() {scrollFunction()};
+   
+   function scrollFunction() {
+     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+       mybutton.style.display = "block";
+     } else {
+       mybutton.style.display = "none";
+     }
+   }
+   
+   // // quando clicar no botão, a página rola para o topo do documento
+   function topFunction() {
+     document.body.scrollTop = 0;
+     document.documentElement.scrollTop = 0;
+   }
+   </script>
 </body>
 </html>
